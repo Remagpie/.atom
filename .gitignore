@@ -1,0 +1,11 @@
+/.apm/
+/.node-gyp/
+/blob-store/
+/compile-cache/
+/packages/
+/recovery/
+/storage/
+.atom-socket-secret-*
+/config.cson
+/github.cson
+/nohup.out
