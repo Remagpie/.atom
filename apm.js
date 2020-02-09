@@ -60,7 +60,7 @@ async function install(name, parents = []) {
 					detail,
 					dismissable: true,
 				});
-				// Execute apm install
+				// Execute apm
 				await apm("install", name, "--color");
 
 				// Cleanup the environment
@@ -78,6 +78,11 @@ async function install(name, parents = []) {
 					}
 				}
 
+				// Refresh theme list if the package is theme package
+				if (Object.keys(metadata).includes("theme")) {
+					atom.themes.activateThemes();
+				}
+
 				// Install the dependencies
 				metadata["package-deps"].forEach((p) => install(p, [...parents, name]));
 			}
@@ -92,6 +97,26 @@ async function install(name, parents = []) {
 	}
 }
 
+function configure(key, scope, config) {
+	if (isObject(config)) {
+		for (const [k, v] of Object.entries(config)) {
+			configure(key + "." + k, scope, v);
+		}
+	}
+	else {
+		atom.config.set(key, config, {
+			scopeSelector: scope !== "*" ? scope : undefined,
+		});
+	}
+}
+
+async function activate(name, config) {
+	await install(name);
+	configure(name, "*", config);
+}
+
 module.exports = {
+	activate,
+	configure,
 	install,
 };
