@@ -1,0 +1,24 @@
+// No blinking cursor
+[moderator=edit] atom-text-editor.is-focused {
+	.cursor {
+		opacity: 1;
+	}
+}
+
+// Block cursor in the navigate mode
+[moderator=navigate] atom-text-editor.is-focused {
+	.cursor {
+		border: none;
+		background-color: #FFFFFF;
+		opacity: 0.4;
+	}
+}
+
+// Hollow block cursor in the navigate mode when not focused
+[moderator=navigate] atom-text-editor:not(.is-focused) {
+	.cursor {
+		border: 1px solid #FFFFFF;
+		background: none;
+		opacity: 0.4;
+	}
+}

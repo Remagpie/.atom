@@ -23,4 +23,5 @@ atom.config.set("editor.showIndentGuide", true);
 atom.config.set("editor.showInvisibles", true);
 atom.config.set("editor.tabLength", 4);
 
+require("./moderator");
 require("./config");

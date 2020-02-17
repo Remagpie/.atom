@@ -73,21 +73,24 @@ async function install(name, parents = []) {
 				for (const dir of atom.packages.getPackageDirPaths()) {
 					const packages = await fs.readdir(dir);
 					if (packages.includes(name)) {
-						metadata = require(path.join(dir, name));
+						metadata = require(path.join(dir, name, "package.json"));
 						break;
 					}
 				}
 
 				// Refresh theme list if the package is theme package
 				if (Object.keys(metadata).includes("theme")) {
-					atom.themes.activateThemes();
+					console.log("activating");
+					await atom.themes.activateThemes();
 				}
 
 				// Install the dependencies
-				metadata["package-deps"].forEach((p) => install(p, [...parents, name]));
+				if (Object.keys(metadata).includes("package-deps")) {
+					metadata["package-deps"].forEach((p) => install(p, [...parents, name]));
+				}
 			}
 			catch (e) {
-				apm.notifications.addError(`Failed to install "${name}"`, {
+				atom.notifications.addError(`Failed to install "${name}"`, {
 					detail: e,
 				});
 				reject();
