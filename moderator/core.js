@@ -25,6 +25,10 @@ function setMode(mode) {
 	// Setup the new mode's setttings
 	switch (mode) {
 		case "navigate": {
+			const editor = atom.workspace.getActiveTextEditor();
+			if (editor != null) {
+				atom.commands.dispatch(editor.element, "autocomplete-plus:cancel");
+			}
 			break;
 		}
 		case "edit": {

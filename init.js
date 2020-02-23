@@ -3,6 +3,7 @@
 // Disable some builtin packages
 atom.packages.disablePackage("about");
 atom.packages.disablePackage("archive-view");
+atom.packages.disablePackage("autocomplete-atom-api");
 atom.packages.disablePackage("autoflow");
 atom.packages.disablePackage("autosave");
 atom.packages.disablePackage("background-tips");
