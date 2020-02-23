@@ -1,10 +1,39 @@
 const { bindKey, bindSpecialKey, createCommand } = require("../core");
 
+function moveHalfPageUp() {
+	const editor = atom.workspace.getActiveTextEditor();
+	const rows = Math.ceil(editor.getRowsPerPage() / 2);
+	editor.moveUp(rows);
+}
+
+function moveHalfPageDown() {
+	const editor = atom.workspace.getActiveTextEditor();
+	const rows = Math.ceil(editor.getRowsPerPage() / 2);
+	editor.moveDown(rows);
+}
+
+function selectHalfPageUp() {
+	const editor = atom.workspace.getActiveTextEditor();
+	const rows = Math.ceil(editor.getRowsPerPage() / 2);
+	editor.selectUp(rows);
+}
+
+function selectHalfPageDown() {
+	const editor = atom.workspace.getActiveTextEditor();
+	const rows = Math.ceil(editor.getRowsPerPage() / 2);
+	editor.selectDown(rows);
+}
+
+atom.commands.add("atom-text-editor", "moderator:half-page-up", moveHalfPageUp);
+atom.commands.add("atom-text-editor", "moderator:select-half-page-up", selectHalfPageUp);
+atom.commands.add("atom-text-editor", "moderator:half-page-down", moveHalfPageDown);
+atom.commands.add("atom-text-editor", "moderator:select-half-page-down", selectHalfPageDown);
+
 atom.commands.add("body", "moderator:move-up", createCommand({
 	"body": {
 		"this": "core:move-up",
 		"gh": "core:page-up",
-		// "vn": "moderator:half-page-up",
+		"vn": "moderator:half-page-up",
 	},
 }));
 
@@ -12,7 +41,7 @@ atom.commands.add("body", "moderator:move-down", createCommand({
 	"body": {
 		"this": "core:move-down",
 		"gh": "core:page-down",
-		// "vn": "moderator:half-page-down",
+		"vn": "moderator:half-page-down",
 	},
 }));
 
@@ -40,7 +69,7 @@ atom.commands.add("body", "moderator:select-up", createCommand({
 	"body": {
 		"this": "core:select-up",
 		"gh": "core:select-page-up",
-		// "vn": "moderator:select-half-page-up",
+		"vn": "moderator:select-half-page-up",
 	},
 }));
 
@@ -48,7 +77,7 @@ atom.commands.add("body", "moderator:select-down", createCommand({
 	"body": {
 		"this": "core:select-down",
 		"gh": "core:select-page-down",
-		// "vn": "moderator:select-half-page-down",
+		"vn": "moderator:select-half-page-down",
 	},
 }));
 
