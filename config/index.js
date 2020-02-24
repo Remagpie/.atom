@@ -2,3 +2,4 @@
 
 require("./autocomplete");
 require("./theme");
+require("./palette");
