@@ -23,7 +23,6 @@ bindKey("moderator:pane", {
 });
 bindKey("moderator:misc", {
 	"body": {
-		"q": "core:save",
 		"p": "core:save",
 		"-": "core:close",
 		"_": "pane:reopen-closed-item",

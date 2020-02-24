@@ -3,3 +3,4 @@
 require("./autocomplete");
 require("./theme");
 require("./palette");
+require("./misc");
