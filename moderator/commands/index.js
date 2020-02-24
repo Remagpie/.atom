@@ -1,11 +1,11 @@
 "use strict";
 
 // Disable all keymaps
-// for (const p of atom.packages.getLoadedPackages()) {
-// 	p.deactivateKeymaps();
-// }
-// const defaultBindings = atom.keymaps.keyBindings;
-// atom.keymaps.keyBindings = [];
+for (const p of atom.packages.getLoadedPackages()) {
+	p.deactivateKeymaps();
+}
+const defaultBindings = atom.keymaps.keyBindings;
+atom.keymaps.keyBindings = [];
 
 // Restore default key bindings not related to this setting
 atom.keymaps.add("core:base.cson", {
