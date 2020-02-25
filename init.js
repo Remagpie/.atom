@@ -7,6 +7,7 @@ atom.packages.disablePackage("autocomplete-atom-api");
 atom.packages.disablePackage("autoflow");
 atom.packages.disablePackage("autosave");
 atom.packages.disablePackage("background-tips");
+atom.packages.disablePackage("bookmarks");
 atom.packages.disablePackage("link");
 atom.packages.disablePackage("metrics");
 atom.packages.disablePackage("open-on-github");
