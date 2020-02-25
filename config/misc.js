@@ -9,6 +9,7 @@ apm.activate("bracket-matcher", {
 apm.activate("find-and-replace");
 apm.activate("github");
 apm.activate("go-to-line");
+apm.activate("highlight-selected");
 apm.activate("markdown-preview");
 apm.activate("tabs", {
 	tabScrolling: false,

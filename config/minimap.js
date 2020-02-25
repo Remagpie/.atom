@@ -12,3 +12,4 @@ apm.activate("minimap-selection", {
 });
 apm.activate("minimap-find-and-replace");
 apm.activate("minimap-git-diff");
+apm.activate("minimap-highlight-selected");
